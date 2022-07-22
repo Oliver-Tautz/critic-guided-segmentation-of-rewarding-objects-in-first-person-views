@@ -67,7 +67,7 @@ class Handler():
     def __init__(self, args: argparse.Namespace):
         self.args = args
         argdict = args.__dict__
-        self.font = ImageFont.truetype("./isy_minerl/segm/etc/Ubuntu-R.ttf", 10)
+        self.font = ImageFont.load_default()
         self.device = "cuda" if T.cuda.is_available() else "cpu"
         print("device:", self.device)
         self.models = dict()
