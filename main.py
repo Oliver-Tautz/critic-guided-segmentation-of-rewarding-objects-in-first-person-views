@@ -113,7 +113,13 @@ class Handler():
     def load_data(self, batch_size=64):
         args = self.args
         X, Y, I = self.collect_data()
-        print('HERE!!!!\n\n\n',X.shape, Y.shape, I.shape,I[0:100],'--------\n\n\n')
+        
+        with open('xfile','wb') as f:               
+            np.save(f,X)
+        with open('yfile','wb') as f:               
+            np.save(f,Y)    
+        with open('ifile','wb') as f:               
+            np.save(f,I)  
         train = slice(0, -args.testsize)
         test = slice(-args.testsize, None)
         self.X, self.Y, self.I = X[train], Y[:, train], I[train]
