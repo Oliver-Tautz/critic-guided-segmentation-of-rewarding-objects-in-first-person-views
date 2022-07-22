@@ -113,7 +113,7 @@ class Handler():
     def load_data(self, batch_size=64):
         args = self.args
         X, Y, I = self.collect_data()
-        print('HERE!!!!\n\n\n,type(X), type(Y), type(I),'--------\n\n\n')
+        print('HERE!!!!\n\n\n',type(X), type(Y), type(I),'--------\n\n\n')
         train = slice(0, -args.testsize)
         test = slice(-args.testsize, None)
         self.X, self.Y, self.I = X[train], Y[:, train], I[train]
